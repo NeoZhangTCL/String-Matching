@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class StringMatching {
@@ -7,16 +8,15 @@ public class StringMatching {
         char[] strs = str.toCharArray();
         char[] patterns = pattern.toCharArray();
 
-        int i = 0, j = 0;
-        while (i < strs.length) {
-            while (j < patterns.length) {
-                if (strs[i] == strs[j]) {
-                    i++;
-                    j++;
-                }
+        for (int i = 0; i < strs.length; i++) {
+            int j = 0, k = i;
+            while (j < patterns.length &&
+                    k < strs.length &&
+                    patterns[j] == strs[k]) {
+                j++;
+                k++;
             }
             if (j == patterns.length) return true;
-            i++;
         }
 
         return false;
@@ -64,13 +64,15 @@ public class StringMatching {
 
         int[] next = new int[len];
 
-        int q = -1;
-        for (int i = 1; i < len; i++ ) {
-            while (q > 0 && patterns[i] != patterns[q+1]) {
-                q = next[q];
+        for (int i = 0, j = 1; j < len; ) {
+
+            while (i != 0 && patterns[i] != patterns[j]) {
+                i = next[i-1];
             }
-            if (patterns[i] == patterns[q+1]) {
-                q = i + 1;
+            if (patterns[i] != patterns[j]) {
+                next[j++] = 0;
+            } else {
+                next[j++] = ++i;
             }
         }
 
@@ -101,59 +103,90 @@ public class StringMatching {
         return Math.abs((int)(Math.random() * max));
     }
 
+    private static long[][] experiment() {
+        long[][] record = new long[10][5];
+        Random rand = new Random();
+
+        int ctr = 0;
+
+        for (int j = 0; j < 10; j++) {
+            long[] timeRecord = new long[5];
+            for (int i = 0; i < 100; i++) {
+
+                int strInt = Math.abs(rand.nextInt());
+                StringBuilder randomStrSb = new StringBuilder();
+                for (int k = 0; k <= j; k++) {
+                    randomStrSb.append(Integer.toString(strInt, 36));
+                }
+                String randomStr = randomStrSb.toString();
+
+                int len = randomStr.length();
+                int a = randInt(len), b = randInt(len), c = randInt(len), d = randInt(len);
+                String str1 = a > b ? randomStr.substring(b, a) : randomStr.substring(a, b);
+                String str2 = c > d ? randomStr.substring(d, c) : randomStr.substring(c, d);
+                String str, pattern;
+                if (str1.length() > str2.length()) {
+                    str = str1;
+                    pattern = str2;
+                } else {
+                    str = str2;
+                    pattern = str1;
+                }
+//                System.out.println(ctr++ + ": String is '" + str + "' and pattern is '" + pattern + "'");
+
+                final long startTimeNaive = System.nanoTime();
+                boolean resNaive = naive(str, pattern);
+                final long endTimeNaive = System.nanoTime();
+                long timeNaive = endTimeNaive - startTimeNaive;
+                timeRecord[0] += timeNaive;
+//                System.out.println("Naive method time consumption is " + timeNaive
+//                        + " and result is " + resNaive);
+
+                final long startTimeRand = System.nanoTime();
+                boolean resRand = naive(str, pattern);
+                final long endTimeRand = System.nanoTime();
+                long timeRand = endTimeRand - startTimeRand;
+                timeRecord[1] += timeRand;
+//                System.out.println("Randomize method time consumption is " + timeRand
+//                        + " and result is " + resRand);
+
+                final long startTimeKmp = System.nanoTime();
+                boolean resKmp = kmp(str, pattern);
+                final long endTimeKmp = System.nanoTime();
+                long timeKmp = endTimeKmp - startTimeKmp;
+                timeRecord[2] += timeKmp;
+//                System.out.println("KMP method time consumption is " + timeKmp
+//                        + " and result is " + resKmp);
+
+                final long startTimeBm = System.nanoTime();
+                boolean resBm = boyerMoore(str, pattern);
+                final long endTimeBm = System.nanoTime();
+                long timeBm = endTimeBm - startTimeBm;
+                timeRecord[3] += timeBm;
+//                System.out.println("BoyerMoore method time consumption is " + timeBm
+//                        + " and result is " + resBm);
+
+                final long startTimeInternal = System.nanoTime();
+                boolean resInternal = internal(str, pattern);
+                final long endTimeInternal = System.nanoTime();
+                long timeInternal = endTimeInternal - startTimeInternal;
+                timeRecord[4] += timeInternal;
+//                System.out.println("Internal Java method time consumption is " + timeInternal
+//                        + " and result is " + resInternal);
+
+//                System.out.println("---------------------");
+            }
+            record[j] = timeRecord;
+            Arrays.stream(timeRecord).forEach(System.out::println);
+            System.out.println("__________________");
+        }
+        return record;
+    }
+
     public static void main(String[] args) {
 
-        Random rand = new Random();
-        Long strLong = Math.abs(rand.nextLong());
-        String randomStr = Long.toString(strLong, 36);
-        System.out.println(randomStr);
-        int len = randomStr.length();
-        int a = randInt(len), b = randInt(len), c = randInt(len), d = randInt(len);
-        String str1 = a > b ? randomStr.substring(b, a) : randomStr.substring(a, b);
-        String str2 = c > d ? randomStr.substring(d, c) : randomStr.substring(c, d);
-        String str, pattern;
-        if (str1.length() > str2.length()) {
-            str = str1;
-            pattern = str2;
-        } else {
-            str = str2;
-            pattern = str1;
-        }
-        System.out.println("String is '" + str + "' and pattern is '" + pattern + "'");
+        experiment();
 
-        final long startTimeNaive = System.nanoTime();
-        boolean resNaive = naive(str, pattern);
-        final long endTimeNaive = System.nanoTime();
-        System.out.println("Naive method time consumption is "
-                + (endTimeNaive - startTimeNaive)
-                + " and result is " + resNaive);
 
-        final long startTimeRand = System.nanoTime();
-        boolean resRand = naive(str, pattern);
-        final long endTimeRand = System.nanoTime();
-        System.out.println("Randomize method time consumption is "
-                + (startTimeRand - endTimeRand)
-                + " and result is " + resRand);
-
-        final long startTimeKmp = System.nanoTime();
-        boolean resKmp = kmp(str, pattern);
-        final long endTimeKmp = System.nanoTime();
-        System.out.println("KMP method time consumption is "
-                + (endTimeKmp - startTimeKmp)
-                + " and result is " + resKmp);
-
-        final long startTimeBm = System.nanoTime();
-        boolean resBm = boyerMoore(str, pattern);
-        final long endTimeBm = System.nanoTime();
-        System.out.println("BoyerMoore method time consumption is "
-                + (endTimeBm - startTimeBm)
-                + " and result is " + resBm);
-
-        final long startTimeInternal = System.nanoTime();
-        boolean resInternal = internal(str, pattern);
-        final long endTimeInternal = System.nanoTime();
-        System.out.println("Internal Java method time consumption is "
-                + (endTimeInternal - startTimeInternal)
-                + " and result is " + resInternal);
     }
 }
