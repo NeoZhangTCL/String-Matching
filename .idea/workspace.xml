@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f2d057c-a49e-4330-aaf9-a5e40dfd5ac1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/StringMatch/StringMatching.class" afterPath="$PROJECT_DIR$/out/production/StringMatch/StringMatching.class" />
       <change beforePath="$PROJECT_DIR$/src/StringMatching.java" afterPath="$PROJECT_DIR$/src/StringMatching.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,14 +17,13 @@
       <file leaf-file-name="StringMatching.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="137" column="29" lean-forward="false" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
+            <state relative-caret-position="-728">
+              <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
                 <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-                <element signature="e#7294#7295#0" expanded="true" />
-                <element signature="e#7367#7368#0" expanded="true" />
+                <element signature="e#7497#7498#0" expanded="true" />
+                <element signature="e#7574#7575#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -36,7 +33,7 @@
         <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/String.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="1966" column="0" lean-forward="false" selection-start-line="1966" selection-start-column="0" selection-end-line="1966" selection-end-column="0" />
+              <caret line="1962" column="0" lean-forward="false" selection-start-line="1962" selection-start-column="0" selection-end-line="1962" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -245,7 +242,7 @@
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40031898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Material Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.4969651" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.4969651" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16312595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -271,12 +268,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/StringMatching.java</url>
-          <line>97</line>
+          <line>98</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/StringMatching.java</url>
+          <line>62</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -287,10 +290,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -301,10 +303,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -315,10 +316,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -329,10 +329,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -343,10 +342,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -357,10 +355,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -371,10 +368,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -385,10 +381,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -396,21 +391,20 @@
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="1966" column="0" lean-forward="false" selection-start-line="1966" selection-start-column="0" selection-end-line="1966" selection-end-column="0" />
+          <caret line="1962" column="0" lean-forward="false" selection-start-line="1962" selection-start-column="0" selection-end-line="1962" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="137" column="29" lean-forward="false" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="29" />
+        <state relative-caret-position="-728">
+          <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createNextTable#0;class#StringMatching#0" expanded="false" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7294#7295#0" expanded="true" />
-            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
+            <element signature="e#7574#7575#0" expanded="true" />
           </folding>
         </state>
       </provider>

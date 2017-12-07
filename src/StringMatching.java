@@ -34,25 +34,26 @@ public class StringMatching {
     public static boolean kmp(String str, String pattern) {
 
         if (pattern.equals("")) return true;
+
         char[] strs = str.toCharArray();
         char[] patterns = pattern.toCharArray();
 
         int[] next = createNextTable(patterns);
 
-        int i = 0, j = 1;
-        while (j < strs.length) {
-            if (strs[j] == patterns[i]) {
+        int i = 0, j = 0;
+        while (i < strs.length){
+            if (strs[i] == patterns[j]) {
                 i++;
                 j++;
             }
-            else {
-                if (i == 0) j++;
-                else i = next[i];
+            if (j == patterns.length) {
+                return true;
             }
-            if (i == patterns.length) return true;
+            else if (i < strs.length && strs[i] != patterns[j]) {
+                if (j != 0) j = next[j-1];
+                else i = i + 1;
+            }
         }
-        
-        if (i == patterns.length) return true;
         return false;
 
     }
@@ -135,7 +136,7 @@ public class StringMatching {
 
         int ctr = 0;
 
-        for (int j = 0; j < 1; j++) {
+        for (int j = 0; j < 10; j++) {
             long[] timeRecord = new long[5];
             for (int i = 0; i < 100; i++) {
 
@@ -148,9 +149,9 @@ public class StringMatching {
 
                 int len = baseStr.length();
                 int a = randInt(0, baseStrBlockLen),
-                        b = randInt(baseStrBlockLen * j, baseStrBlockLen * (j + 1)),
+                        b = randInt(len * 5 / 6, len),
                         c = randInt(0, baseStrBlockLen),
-                        d = randInt(baseStrBlockLen * j, baseStrBlockLen * (j + 1));
+                        d = randInt(len * 5 / 6, len);
                 String str1 = a < b ? baseStr.substring(a, b) : baseStr.substring(b, a);
                 String str2 = c < d ? baseStr.substring(c, d) : baseStr.substring(d, c);
                 String str, pattern;
@@ -168,8 +169,8 @@ public class StringMatching {
                 final long endTimeNaive = System.nanoTime();
                 long timeNaive = endTimeNaive - startTimeNaive;
                 timeRecord[0] += timeNaive;
-//                System.out.println("Naive method time consumption is " + timeNaive
-//                        + " and result is " + resNaive);
+                System.out.println("Naive method time consumption is " + timeNaive
+                        + " and result is " + resNaive);
 
                 final long startTimeRand = System.nanoTime();
                 boolean resRand = naive(str, pattern);
@@ -184,8 +185,8 @@ public class StringMatching {
                 final long endTimeKmp = System.nanoTime();
                 long timeKmp = endTimeKmp - startTimeKmp;
                 timeRecord[2] += timeKmp;
-//                System.out.println("KMP method time consumption is " + timeKmp
-//                        + " and result is " + resKmp);
+                System.out.println("KMP method time consumption is " + timeKmp
+                        + " and result is " + resKmp);
 
                 final long startTimeBm = System.nanoTime();
                 boolean resBm = boyerMoore(str, pattern);
@@ -206,14 +207,18 @@ public class StringMatching {
 //                System.out.println("---------------------");
             }
             record[j] = timeRecord;
-            Arrays.stream(timeRecord).forEach(System.out::println);
+            System.out.println("naive: " + timeRecord[0]);
+            System.out.println("randomized: " + timeRecord[1]);
+            System.out.println("kmp: " + timeRecord[2]);
+            System.out.println("Boyer-Mooer: " + timeRecord[3]);
+            System.out.println("Internal: " + timeRecord[4]);
             System.out.println("__________________");
         }
 
     }
 
     private static int randInt(int min, int max) {
-        return Math.abs((int)(Math.random() * (max - min) + min));
+        return Math.abs((int)(Math.random() * (max - min) + min - 1));
     }
 
 }
