@@ -177,6 +177,7 @@ public class StringMatching {
 
     public static void main(String[] args) {
 
+//        experiment2();
         experiment1(1000, 1000);
 
     }
@@ -216,7 +217,7 @@ public class StringMatching {
                     str = str2;
                     pattern = str1;
                 }
-                System.out.println(ctr++ + ": String is '" + str + "' and pattern is '" + pattern + "'");
+//                System.out.println(ctr++ + ": String is '" + str + "' and pattern is '" + pattern + "'");
 
                 final long startTimeNaive = System.nanoTime();
                 boolean resNaive = naive(str, pattern);
@@ -266,6 +267,7 @@ public class StringMatching {
             System.out.println("Boyer-Mooer: " + timeRecord[3]);
             System.out.println("Internal: " + timeRecord[4]);
             System.out.println("__________________");
+            record[j] = timeRecord;
         }
     }
 
@@ -301,7 +303,7 @@ public class StringMatching {
 //                        + " and result is " + resNaive);
 
             final long startTimeRand = System.nanoTime();
-            boolean resRand = naive(str, pattern);
+            boolean resRand = randomize(str, pattern);
             final long endTimeRand = System.nanoTime();
             long timeRand = endTimeRand - startTimeRand;
             timeRecord[1] += timeRand;

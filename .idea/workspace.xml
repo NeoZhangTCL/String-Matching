@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6f2d057c-a49e-4330-aaf9-a5e40dfd5ac1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/StringMatch/StringMatching.class" afterPath="$PROJECT_DIR$/out/production/StringMatch/StringMatching.class" />
       <change beforePath="$PROJECT_DIR$/src/StringMatching.java" afterPath="$PROJECT_DIR$/src/StringMatching.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,13 +18,14 @@
       <file leaf-file-name="StringMatching.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="267" column="53" lean-forward="false" selection-start-line="267" selection-start-column="53" selection-end-line="267" selection-end-column="53" />
+            <state relative-caret-position="310">
+              <caret line="180" column="15" lean-forward="false" selection-start-line="180" selection-start-column="15" selection-end-line="180" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
                 <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-                <element signature="e#12600#12601#0" expanded="true" />
-                <element signature="e#12677#12678#0" expanded="true" />
+                <element signature="e#12667#12668#0" expanded="true" />
+                <element signature="e#12744#12745#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,7 +34,7 @@
       <file leaf-file-name="Fingerprinting.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Fingerprinting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
+            <state relative-caret-position="130">
               <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="48" selection-end-column="5" />
               <folding />
             </state>
@@ -127,7 +127,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -147,6 +146,7 @@
       </pane>
       <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -297,13 +297,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5030349" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18500797" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.553429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Material Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.4969651" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16540213" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1676783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -331,20 +331,51 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Fingerprinting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="48" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17082">
+          <caret line="657" column="0" lean-forward="false" selection-start-line="657" selection-start-column="0" selection-end-line="657" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6006">
           <caret line="302" column="70" lean-forward="false" selection-start-line="302" selection-start-column="15" selection-end-line="302" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -371,9 +402,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -384,9 +416,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -397,9 +430,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -410,9 +444,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -423,9 +458,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -436,9 +472,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -449,9 +486,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -462,9 +500,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -480,7 +519,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fingerprinting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
+        <state relative-caret-position="130">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="48" selection-end-column="5" />
           <folding />
         </state>
@@ -488,13 +527,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="267" column="53" lean-forward="false" selection-start-line="267" selection-start-column="53" selection-end-line="267" selection-end-column="53" />
+        <state relative-caret-position="310">
+          <caret line="180" column="15" lean-forward="false" selection-start-line="180" selection-start-column="15" selection-end-line="180" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
             <element signature="method#experiment2#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#12600#12601#0" expanded="true" />
-            <element signature="e#12677#12678#0" expanded="true" />
+            <element signature="e#12667#12668#0" expanded="true" />
+            <element signature="e#12744#12745#0" expanded="true" />
           </folding>
         </state>
       </provider>
