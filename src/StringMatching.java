@@ -1,5 +1,8 @@
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class StringMatching {
     
@@ -175,14 +178,15 @@ public class StringMatching {
             return true;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 //        experiment2();
-        experiment1(1000, 1000);
+        experiment1(1000, 1000, "experiment1.csv");
 
     }
 
-    private static void experiment1(int lengthLimit, int repeat) {
+    private static void experiment1(int lengthLimit, int repeat, String fileName)
+            throws IOException {
 
         final int strRadix = 36;
         final int baseStrBlockLen = Integer.toString(Integer.MAX_VALUE, strRadix).length();
@@ -261,14 +265,16 @@ public class StringMatching {
 
 //                System.out.println("---------------------");
             }
-            System.out.println("naive: " + timeRecord[0]);
-            System.out.println("randomized: " + timeRecord[1]);
-            System.out.println("kmp: " + timeRecord[2]);
-            System.out.println("Boyer-Mooer: " + timeRecord[3]);
-            System.out.println("Internal: " + timeRecord[4]);
-            System.out.println("__________________");
+//            System.out.println("naive: " + timeRecord[0]);
+//            System.out.println("randomized: " + timeRecord[1]);
+//            System.out.println("kmp: " + timeRecord[2]);
+//            System.out.println("Boyer-Mooer: " + timeRecord[3]);
+//            System.out.println("Internal: " + timeRecord[4]);
+//            System.out.println("__________________");
             record[j] = timeRecord;
         }
+
+        writeCsv(fileName, record);
     }
 
     private static void experiment2() {
@@ -344,9 +350,20 @@ public class StringMatching {
         System.out.println("__________________");
     }
 
-
     private static int randInt(int min, int max) {
         return Math.abs((int)(Math.random() * (max - min) + min - 1));
     }
 
+    private static void writeCsv(String fileName, long[][] record)
+            throws IOException {
+        PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+        writer.println("Naive, Randomized, KMP, Boyer-Mooer, String.indexOf");
+        for (long[] r: record) {
+            String line = Arrays.stream(r)
+                    .mapToObj(String::valueOf)
+                    .collect(Collectors.joining(","));
+            writer.println(line);
+        }
+        writer.close();
+    }
 }
