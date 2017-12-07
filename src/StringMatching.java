@@ -82,40 +82,56 @@ public class StringMatching {
     }
 
     public static boolean boyerMoore(String str, String pattern) {
-//
-//        char[] strs = str.toCharArray();
-//        char[] patterns = pattern.toCharArray();
-//        int n = str.length();
-//        int m = pattern.length();
-//        int[] occurrence = createOccurenceTable(pattern);
-//        int skip;
-//
-//        for (int i = 0; i <= n - m; i += skip) {
-//            skip = 0;
-//            for (int j = m-1; j >= 0; j--) {
-//                if (patterns[j] != strs[i+j]) {
-//                    skip = Math.max(1, j - occurrence[strs[i+j]]);
-//                    break;
-//                }
-//            }
-////            if (skip == 0) return i;
-//        }
-////        return n;
-        return false;
 
+        if (pattern.equals("")) return true;
+
+        char[] strs = str.toCharArray();
+        char[] patterns = pattern.toCharArray();
+
+        // build last occurrence index
+        int[] occerrence = createOccurrenceTable(patterns);
+
+        // searching
+        int start = pattern.length() - 1;
+        int end = str.length();
+        int i, j;
+
+        // search from left to right
+        while (start < end) {
+            i = start;
+            for (j = patterns.length - 1; j >= 0; j--) {
+                if (strs[i] != patterns[j]) {
+                    // check the last occurrence index
+                    if (occerrence[strs[i]] != -1) {
+                        if (j - occerrence[strs[i]] > 0) start += j - occerrence[strs[i]];
+                        else start += 1;
+                    } else {
+                        start += j + 1;
+                    }
+                    break;
+                }
+                if (j == 0) {
+                    return true;
+                }
+                i--;
+            }
+        }
+
+        return false;
     }
-//
-//    private static int[] createOccurenceTable(String pattern) {
-//        int BASE = 256;
-//
-//        int[] occurrence = new int[BASE];
-//        for (int c = 0; c < BASE; c++)
-//            occurrence[c] = -1;
-//        for (int j = 0; j < pattern.length(); j++)
-//            occurrence[pattern.charAt(j)] = j;
-//
-//        return occurrence;
-//    }
+
+    private static int[] createOccurrenceTable(char[] patterns) {
+        final int SIZE = 256;
+        int occurrence[] = new int[SIZE];
+        int length = patterns.length;
+        for (int i = 0; i < SIZE; i++) {
+            occurrence[i] = -1;
+        }
+        for (int i = 0; i < length; i++) {
+            occurrence[patterns[i]] = i;
+        }
+        return occurrence;
+    }
 
     public static boolean internal(String str, String pattern) {
 
@@ -130,6 +146,12 @@ public class StringMatching {
 
     public static void main(String[] args) {
 
+        experiment2();
+
+    }
+
+    private static void experiment1() {
+
         final int strRadix = 36;
         final int baseStrBlockLen = Integer.toString(Integer.MAX_VALUE, strRadix).length();
         long[][] record = new long[10][5];
@@ -137,7 +159,7 @@ public class StringMatching {
 
         int ctr = 0;
 
-        for (int j = 20; j < 21; j++) {
+        for (int j = 0; j < 10; j++) {
             long[] timeRecord = new long[5];
             for (int i = 0; i < 100; i++) {
 
@@ -170,8 +192,8 @@ public class StringMatching {
                 final long endTimeNaive = System.nanoTime();
                 long timeNaive = endTimeNaive - startTimeNaive;
                 timeRecord[0] += timeNaive;
-                System.out.println("Naive method time consumption is " + timeNaive
-                        + " and result is " + resNaive);
+//                System.out.println("Naive method time consumption is " + timeNaive
+//                        + " and result is " + resNaive);
 
                 final long startTimeRand = System.nanoTime();
                 boolean resRand = naive(str, pattern);
@@ -186,8 +208,8 @@ public class StringMatching {
                 final long endTimeKmp = System.nanoTime();
                 long timeKmp = endTimeKmp - startTimeKmp;
                 timeRecord[2] += timeKmp;
-                System.out.println("KMP method time consumption is " + timeKmp
-                        + " and result is " + resKmp);
+//                System.out.println("KMP method time consumption is " + timeKmp
+//                        + " and result is " + resKmp);
 
                 final long startTimeBm = System.nanoTime();
                 boolean resBm = boyerMoore(str, pattern);
@@ -215,8 +237,81 @@ public class StringMatching {
             System.out.println("Internal: " + timeRecord[4]);
             System.out.println("__________________");
         }
-
     }
+
+    private static void experiment2() {
+
+        final int strRadix = 36;
+        Random rand = new Random();
+
+        int ctr = 0;
+
+        long[] timeRecord = new long[5];
+        for (int i = 0; i < 1000000; i++) {
+
+            String str1 = Integer.toString(Math.abs(rand.nextInt()), strRadix) + Integer.toString(Math.abs(rand.nextInt()), strRadix);
+            String str2 = Integer.toString(Math.abs(rand.nextInt()), strRadix);
+
+            String str, pattern;
+            if (str1.length() > str2.length()) {
+                str = str1;
+                pattern = str2;
+            } else {
+                str = str2;
+                pattern = str1;
+            }
+            System.out.println(ctr++ + ": String is '" + str + "' and pattern is '" + pattern + "'");
+
+            final long startTimeNaive = System.nanoTime();
+            boolean resNaive = naive(str, pattern);
+            final long endTimeNaive = System.nanoTime();
+            long timeNaive = endTimeNaive - startTimeNaive;
+            timeRecord[0] += timeNaive;
+//                System.out.println("Naive method time consumption is " + timeNaive
+//                        + " and result is " + resNaive);
+
+            final long startTimeRand = System.nanoTime();
+            boolean resRand = naive(str, pattern);
+            final long endTimeRand = System.nanoTime();
+            long timeRand = endTimeRand - startTimeRand;
+            timeRecord[1] += timeRand;
+//                System.out.println("Randomize method time consumption is " + timeRand
+//                        + " and result is " + resRand);
+
+            final long startTimeKmp = System.nanoTime();
+            boolean resKmp = kmp(str, pattern);
+            final long endTimeKmp = System.nanoTime();
+            long timeKmp = endTimeKmp - startTimeKmp;
+            timeRecord[2] += timeKmp;
+//                System.out.println("KMP method time consumption is " + timeKmp
+//                        + " and result is " + resKmp);
+
+            final long startTimeBm = System.nanoTime();
+            boolean resBm = boyerMoore(str, pattern);
+            final long endTimeBm = System.nanoTime();
+            long timeBm = endTimeBm - startTimeBm;
+            timeRecord[3] += timeBm;
+//                System.out.println("BoyerMoore method time consumption is " + timeBm
+//                        + " and result is " + resBm);
+
+            final long startTimeInternal = System.nanoTime();
+            boolean resInternal = internal(str, pattern);
+            final long endTimeInternal = System.nanoTime();
+            long timeInternal = endTimeInternal - startTimeInternal;
+            timeRecord[4] += timeInternal;
+//                System.out.println("Internal Java method time consumption is " + timeInternal
+//                        + " and result is " + resInternal);
+
+//                System.out.println("---------------------");
+        }
+        System.out.println("naive: " + timeRecord[0]);
+        System.out.println("randomized: " + timeRecord[1]);
+        System.out.println("kmp: " + timeRecord[2]);
+        System.out.println("Boyer-Mooer: " + timeRecord[3]);
+        System.out.println("Internal: " + timeRecord[4]);
+        System.out.println("__________________");
+    }
+
 
     private static int randInt(int min, int max) {
         return Math.abs((int)(Math.random() * (max - min) + min - 1));

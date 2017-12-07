@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f2d057c-a49e-4330-aaf9-a5e40dfd5ac1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/StringMatch/StringMatching.class" afterPath="$PROJECT_DIR$/out/production/StringMatch/StringMatching.class" />
       <change beforePath="$PROJECT_DIR$/src/StringMatching.java" afterPath="$PROJECT_DIR$/src/StringMatching.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,13 +19,14 @@
       <file leaf-file-name="StringMatching.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
+            <state relative-caret-position="26">
+              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-                <element signature="e#7483#7484#0" expanded="true" />
-                <element signature="e#7560#7561#0" expanded="true" />
+                <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+                <element signature="e#11259#11260#0" expanded="true" />
+                <element signature="e#11336#11337#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,11 +56,18 @@
       <find>randomStr</find>
       <find>search</find>
       <find>target</find>
+      <find>lastOccurrence</find>
+      <find>oc</find>
+      <find>content</find>
+      <find>position</find>
     </findStrings>
     <replaceStrings>
       <replace>baseStr</replace>
       <replace>strs</replace>
       <replace>patterns</replace>
+      <replace>occurrence</replace>
+      <replace>str</replace>
+      <replace>i</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -71,6 +81,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/Boyer_Moore.java" />
         <option value="$PROJECT_DIR$/src/StringMatching.java" />
       </list>
     </option>
@@ -107,6 +118,11 @@
             <path>
               <item name="StringMatch" type="b2602c69:ProjectViewProjectNode" />
               <item name="StringMatch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StringMatch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="StringMatch" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -272,12 +288,6 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/StringMatching.java</url>
-          <line>99</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/StringMatching.java</url>
           <line>63</line>
           <properties />
           <option name="timeStamp" value="7" />
@@ -295,8 +305,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -308,8 +319,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -321,8 +333,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -334,8 +347,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -347,8 +361,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -360,8 +375,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -373,8 +389,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -386,8 +403,9 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -400,15 +418,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Boyer_Moore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
+        <state relative-caret-position="26">
+          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7483#7484#0" expanded="true" />
-            <element signature="e#7560#7561#0" expanded="true" />
+            <element signature="method#experiment1#0;class#StringMatching#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="true" />
+            <element signature="e#11336#11337#0" expanded="true" />
           </folding>
         </state>
       </provider>
