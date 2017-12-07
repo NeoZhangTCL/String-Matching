@@ -80,13 +80,40 @@ public class StringMatching {
     }
 
     public static boolean boyerMoore(String str, String pattern) {
-
-        char[] strs = str.toCharArray();
-        char[] patterns = pattern.toCharArray();
-
+//
+//        char[] strs = str.toCharArray();
+//        char[] patterns = pattern.toCharArray();
+//        int n = str.length();
+//        int m = pattern.length();
+//        int[] occurrence = createOccurenceTable(pattern);
+//        int skip;
+//
+//        for (int i = 0; i <= n - m; i += skip) {
+//            skip = 0;
+//            for (int j = m-1; j >= 0; j--) {
+//                if (patterns[j] != strs[i+j]) {
+//                    skip = Math.max(1, j - occurrence[strs[i+j]]);
+//                    break;
+//                }
+//            }
+////            if (skip == 0) return i;
+//        }
+////        return n;
         return false;
 
     }
+//
+//    private static int[] createOccurenceTable(String pattern) {
+//        int BASE = 256;
+//
+//        int[] occurrence = new int[BASE];
+//        for (int c = 0; c < BASE; c++)
+//            occurrence[c] = -1;
+//        for (int j = 0; j < pattern.length(); j++)
+//            occurrence[pattern.charAt(j)] = j;
+//
+//        return occurrence;
+//    }
 
     public static boolean internal(String str, String pattern) {
 
@@ -99,31 +126,33 @@ public class StringMatching {
 
     }
 
-    private static int randInt(int max) {
-        return Math.abs((int)(Math.random() * max));
-    }
+    public static void main(String[] args) {
 
-    private static long[][] experiment() {
+        final int strRadix = 36;
+        final int baseStrBlockLen = Integer.toString(Integer.MAX_VALUE, strRadix).length();
         long[][] record = new long[10][5];
         Random rand = new Random();
 
         int ctr = 0;
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 1; j++) {
             long[] timeRecord = new long[5];
             for (int i = 0; i < 100; i++) {
 
-                int strInt = Math.abs(rand.nextInt());
-                StringBuilder randomStrSb = new StringBuilder();
+                StringBuilder baseStrSb = new StringBuilder();
                 for (int k = 0; k <= j; k++) {
-                    randomStrSb.append(Integer.toString(strInt, 36));
+                    int baseBlockInt = Math.abs(rand.nextInt());
+                    baseStrSb.append(Integer.toString(baseBlockInt, strRadix));
                 }
-                String randomStr = randomStrSb.toString();
+                String baseStr = baseStrSb.toString();
 
-                int len = randomStr.length();
-                int a = randInt(len), b = randInt(len), c = randInt(len), d = randInt(len);
-                String str1 = a > b ? randomStr.substring(b, a) : randomStr.substring(a, b);
-                String str2 = c > d ? randomStr.substring(d, c) : randomStr.substring(c, d);
+                int len = baseStr.length();
+                int a = randInt(0, baseStrBlockLen),
+                        b = randInt(baseStrBlockLen * j, baseStrBlockLen * (j + 1)),
+                        c = randInt(0, baseStrBlockLen),
+                        d = randInt(baseStrBlockLen * j, baseStrBlockLen * (j + 1));
+                String str1 = a < b ? baseStr.substring(a, b) : baseStr.substring(b, a);
+                String str2 = c < d ? baseStr.substring(c, d) : baseStr.substring(d, c);
                 String str, pattern;
                 if (str1.length() > str2.length()) {
                     str = str1;
@@ -132,7 +161,7 @@ public class StringMatching {
                     str = str2;
                     pattern = str1;
                 }
-//                System.out.println(ctr++ + ": String is '" + str + "' and pattern is '" + pattern + "'");
+                System.out.println(ctr++ + ": String is '" + str + "' and pattern is '" + pattern + "'");
 
                 final long startTimeNaive = System.nanoTime();
                 boolean resNaive = naive(str, pattern);
@@ -180,13 +209,11 @@ public class StringMatching {
             Arrays.stream(timeRecord).forEach(System.out::println);
             System.out.println("__________________");
         }
-        return record;
-    }
-
-    public static void main(String[] args) {
-
-        experiment();
-
 
     }
+
+    private static int randInt(int min, int max) {
+        return Math.abs((int)(Math.random() * (max - min) + min));
+    }
+
 }
