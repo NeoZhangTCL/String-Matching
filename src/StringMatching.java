@@ -2,51 +2,86 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class StringMatching {
+    
+    private final static int ALGO_NUMS = 5;
 
     public static boolean naive(String str, String pattern) {
 
-        char[] strs = str.toCharArray();
-        char[] patterns = pattern.toCharArray();
-
-        for (int i = 0; i < strs.length; i++) {
+        for (int i = 0; i < str.length(); i++) {
             int j = 0, k = i;
-            while (j < patterns.length &&
-                    k < strs.length &&
-                    patterns[j] == strs[k]) {
+            while (j < pattern.length() &&
+                    k < str.length() &&
+                    pattern.charAt(j) == str.charAt(k)) {
                 j++;
                 k++;
             }
-            if (j == patterns.length) return true;
+            if (j == pattern.length()) return true;
         }
 
         return false;
     }
 
+    //-----------------------------------------------
     public static boolean randomize(String str, String pattern) {
+        int n = str.length(), m = pattern.length();
 
-        char[] strs = str.toCharArray();
-        char[] patterns = pattern.toCharArray();
+        final double limit =  n * n * m * Math.log(n * n * m);
+        int randomPrime = getRandomPrime(limit);
 
+        int strFp = createFp(str, 0, m), ptFp = createFp(pattern, 0, m);
+        if ((strFp % randomPrime) == (ptFp % randomPrime)) {
+            return true;
+        }
+
+        for (int nextIndex = m; nextIndex < n; nextIndex++) {
+            ptFp = createFp(str, nextIndex - m, nextIndex);
+            if ((strFp % randomPrime) == (ptFp % randomPrime)) {
+                return true;
+            }
+        }
         return false;
-
     }
 
+    private static int createFp(String str, int start, int end) {
+        int res = 0;
+        for (int i = start; i < end; i++) {
+            res += (int)(str.charAt(i)) * Math.pow(2, i);
+        }
+        return res;
+    }
+
+    private static int getRandomPrime(double limit) {
+        int i = (int) (Math.random() * limit) - 1;
+        while (!isPrime(i)) {
+            i = (int) (Math.random() * limit) - 1;
+        }
+        return i;
+    }
+
+    public static boolean isPrime(int n) {
+        if (n < 2) return false;
+        int maxIteration = (int) Math.ceil(Math.sqrt(n));
+        for (int i = 2; i < maxIteration; i++) {
+            if(n % i == 0)
+                return false;
+        }
+        return true;
+    }
+
+    //-----------------------------------------------
     public static boolean kmp(String str, String pattern) {
 
         if (pattern.equals("")) return true;
 
-        char[] strs = str.toCharArray();
-        char[] patterns = pattern.toCharArray();
-
-        int[] next = createNextTable(patterns);
+        int[] next = createNextTable(pattern);
         
         int i = 0; 
         int j = 0; 
 
-        while (i < strs.length) {
-            if (strs[i] == patterns[j]) {
+        while (i < str.length()) {
+            if (str.charAt(i) == pattern.charAt(j)) {
                 j++;
-                if (j == patterns.length) {
+                if (j == pattern.length()) {
                     return true;
                 }
                 i++;
@@ -59,19 +94,19 @@ public class StringMatching {
         return false;
     }
 
-    private static int[] createNextTable(char[] patterns) {
+    private static int[] createNextTable(String pattern) {
 
-        int len = patterns.length;
+        int len = pattern.length();
         if (len == 0) return new int[0];
 
         int[] next = new int[len];
 
         for (int i = 0, j = 1; j < len; ) {
 
-            while (i != 0 && patterns[i] != patterns[j]) {
+            while (i != 0 && pattern.charAt(i) != pattern.charAt(j)) {
                 i = next[i-1];
             }
-            if (patterns[i] != patterns[j]) {
+            if (pattern.charAt(i) != pattern.charAt(j)) {
                 next[j++] = 0;
             } else {
                 next[j++] = ++i;
@@ -81,15 +116,13 @@ public class StringMatching {
         return next;
     }
 
+    //-----------------------------------------------
     public static boolean boyerMoore(String str, String pattern) {
 
         if (pattern.equals("")) return true;
 
-        char[] strs = str.toCharArray();
-        char[] patterns = pattern.toCharArray();
-
         // build last occurrence index
-        int[] occerrence = createOccurrenceTable(patterns);
+        int[] occerrence = createOccurrenceTable(pattern);
 
         // searching
         int start = pattern.length() - 1;
@@ -99,11 +132,11 @@ public class StringMatching {
         // search from left to right
         while (start < end) {
             i = start;
-            for (j = patterns.length - 1; j >= 0; j--) {
-                if (strs[i] != patterns[j]) {
+            for (j = pattern.length() - 1; j >= 0; j--) {
+                if (str.charAt(i) != pattern.charAt(j)) {
                     // check the last occurrence index
-                    if (occerrence[strs[i]] != -1) {
-                        if (j - occerrence[strs[i]] > 0) start += j - occerrence[strs[i]];
+                    if (occerrence[str.charAt(i)] != -1) {
+                        if (j - occerrence[str.charAt(i)] > 0) start += j - occerrence[str.charAt(i)];
                         else start += 1;
                     } else {
                         start += j + 1;
@@ -120,61 +153,59 @@ public class StringMatching {
         return false;
     }
 
-    private static int[] createOccurrenceTable(char[] patterns) {
+    private static int[] createOccurrenceTable(String pattern) {
         final int SIZE = 256;
         int occurrence[] = new int[SIZE];
-        int length = patterns.length;
+        int length = pattern.length();
         for (int i = 0; i < SIZE; i++) {
             occurrence[i] = -1;
         }
         for (int i = 0; i < length; i++) {
-            occurrence[patterns[i]] = i;
+            occurrence[pattern.charAt(i)] = i;
         }
         return occurrence;
     }
 
+    //-----------------------------------------------
     public static boolean internal(String str, String pattern) {
-
         int found = str.indexOf(pattern);
-
         if (found == -1)
             return false;
         else
             return true;
-
     }
 
     public static void main(String[] args) {
 
-        experiment2();
+        experiment1(1000, 1000);
 
     }
 
-    private static void experiment1() {
+    private static void experiment1(int lengthLimit, int repeat) {
 
         final int strRadix = 36;
         final int baseStrBlockLen = Integer.toString(Integer.MAX_VALUE, strRadix).length();
-        long[][] record = new long[10][5];
         Random rand = new Random();
 
         int ctr = 0;
+        long[][] record = new long[lengthLimit][ALGO_NUMS];
+        
+        for (int j = 0; j < lengthLimit; j++) {
+            long[] timeRecord = new long[ALGO_NUMS];
+            for (int i = 0; i < repeat; i++) {
 
-        for (int j = 0; j < 10; j++) {
-            long[] timeRecord = new long[5];
-            for (int i = 0; i < 100; i++) {
-
-                StringBuilder baseStrSb = new StringBuilder();
+                StringBuilder basestrb = new StringBuilder();
                 for (int k = 0; k <= j; k++) {
                     int baseBlockInt = Math.abs(rand.nextInt());
-                    baseStrSb.append(Integer.toString(baseBlockInt, strRadix));
+                    basestrb.append(Integer.toString(baseBlockInt, strRadix));
                 }
-                String baseStr = baseStrSb.toString();
+                String baseStr = basestrb.toString();
 
                 int len = baseStr.length();
                 int a = randInt(0, baseStrBlockLen),
-                        b = randInt(len * 5 / 6, len),
-                        c = randInt(0, baseStrBlockLen),
-                        d = randInt(len * 5 / 6, len);
+                        b = randInt(len * (baseStrBlockLen - 1) / baseStrBlockLen, len),
+                        c = randInt(0, len),
+                        d = randInt(0, len);
                 String str1 = a < b ? baseStr.substring(a, b) : baseStr.substring(b, a);
                 String str2 = c < d ? baseStr.substring(c, d) : baseStr.substring(d, c);
                 String str, pattern;
@@ -229,7 +260,6 @@ public class StringMatching {
 
 //                System.out.println("---------------------");
             }
-            record[j] = timeRecord;
             System.out.println("naive: " + timeRecord[0]);
             System.out.println("randomized: " + timeRecord[1]);
             System.out.println("kmp: " + timeRecord[2]);
