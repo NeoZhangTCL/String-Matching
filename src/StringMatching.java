@@ -39,23 +39,24 @@ public class StringMatching {
         char[] patterns = pattern.toCharArray();
 
         int[] next = createNextTable(patterns);
+        
+        int i = 0; 
+        int j = 0; 
 
-        int i = 0, j = 0;
-        while (i < strs.length){
+        while (i < strs.length) {
             if (strs[i] == patterns[j]) {
-                i++;
                 j++;
-            }
-            if (j == patterns.length) {
-                return true;
-            }
-            else if (i < strs.length && strs[i] != patterns[j]) {
-                if (j != 0) j = next[j-1];
-                else i = i + 1;
+                if (j == patterns.length) {
+                    return true;
+                }
+                i++;
+            } else if (j > 0) {
+                j = next[j-1];
+            } else {
+                i++;
             }
         }
         return false;
-
     }
 
     private static int[] createNextTable(char[] patterns) {
@@ -136,7 +137,7 @@ public class StringMatching {
 
         int ctr = 0;
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 20; j < 21; j++) {
             long[] timeRecord = new long[5];
             for (int i = 0; i < 100; i++) {
 

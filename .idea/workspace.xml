@@ -17,13 +17,13 @@
       <file leaf-file-name="StringMatching.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-728">
-              <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="48" />
+            <state relative-caret-position="143">
+              <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-                <element signature="e#7497#7498#0" expanded="true" />
-                <element signature="e#7574#7575#0" expanded="true" />
+                <element signature="e#7483#7484#0" expanded="true" />
+                <element signature="e#7560#7561#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,9 +51,13 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>randomStr</find>
+      <find>search</find>
+      <find>target</find>
     </findStrings>
     <replaceStrings>
       <replace>baseStr</replace>
+      <replace>strs</replace>
+      <replace>patterns</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -233,13 +237,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5030349" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40031898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40031898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Material Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854864" sideWeight="0.4969651" order="7" side_tool="false" content_ui="tabs" />
@@ -268,13 +272,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/StringMatching.java</url>
-          <line>98</line>
+          <line>99</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/StringMatching.java</url>
-          <line>62</line>
+          <line>63</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
@@ -291,8 +295,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -304,8 +308,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -317,8 +321,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -330,8 +334,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -343,8 +347,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -356,8 +360,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -369,8 +373,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -382,8 +386,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -398,13 +402,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StringMatching.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-728">
-          <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="48" />
+        <state relative-caret-position="143">
+          <caret line="141" column="27" lean-forward="true" selection-start-line="141" selection-start-column="27" selection-end-line="141" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#internal#0;class#StringMatching#0" expanded="false" />
-            <element signature="e#7497#7498#0" expanded="true" />
-            <element signature="e#7574#7575#0" expanded="true" />
+            <element signature="e#7483#7484#0" expanded="true" />
+            <element signature="e#7560#7561#0" expanded="true" />
           </folding>
         </state>
       </provider>
