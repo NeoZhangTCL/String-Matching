@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class StringMatching {
-    
+
     private final static int ALGO_NUMS = 5;
 
     public static boolean naive(String str, String pattern) {
@@ -31,14 +31,14 @@ public class StringMatching {
         final double limit =  n * n * m * Math.log(n * n * m);
         int randomPrime = getRandomPrime(limit);
 
-        int strFp = createFp(str, 0, m), ptFp = createFp(pattern, 0, m);
-        if ((strFp % randomPrime) == (ptFp % randomPrime)) {
+        int subStrFp = createFp(str, 0, m), ptFp = createFp(pattern, 0, m);
+        if ((subStrFp % randomPrime) == (ptFp % randomPrime)) {
             return true;
         }
 
         for (int nextIndex = m; nextIndex < n; nextIndex++) {
-            ptFp = createFp(str, nextIndex - m, nextIndex);
-            if ((strFp % randomPrime) == (ptFp % randomPrime)) {
+            subStrFp = updateFp(str, nextIndex - m, nextIndex, subStrFp);
+            if ((subStrFp % randomPrime) == (ptFp % randomPrime)) {
                 return true;
             }
         }
@@ -50,6 +50,12 @@ public class StringMatching {
         for (int i = start; i < end; i++) {
             res += (int)(str.charAt(i)) * Math.pow(2, i);
         }
+        return res;
+    }
+
+    private static int updateFp(String str, int removeInt, int addIndex,int res) {
+        res -= (int)(str.charAt(removeInt)) * Math.pow(2, removeInt);
+        res += (int)(str.charAt(addIndex)) * Math.pow(2, addIndex);
         return res;
     }
 
@@ -77,9 +83,9 @@ public class StringMatching {
         if (pattern.equals("")) return true;
 
         int[] next = createNextTable(pattern);
-        
-        int i = 0; 
-        int j = 0; 
+
+        int i = 0;
+        int j = 0;
 
         while (i < str.length()) {
             if (str.charAt(i) == pattern.charAt(j)) {
@@ -194,7 +200,7 @@ public class StringMatching {
 
         int ctr = 0;
         long[][] record = new long[lengthLimit][ALGO_NUMS];
-        
+
         for (int j = 0; j < lengthLimit; j++) {
             long[] timeRecord = new long[ALGO_NUMS];
             for (int i = 0; i < repeat; i++) {
@@ -236,8 +242,8 @@ public class StringMatching {
                 final long endTimeRand = System.nanoTime();
                 long timeRand = endTimeRand - startTimeRand;
                 timeRecord[1] += timeRand;
-//                System.out.println("Randomize method time consumption is " + timeRand
-//                        + " and result is " + resRand);
+                System.out.println("Randomize method time consumption is " + timeRand
+                        + " and result is " + resRand);
 
                 final long startTimeKmp = System.nanoTime();
                 boolean resKmp = kmp(str, pattern);
@@ -260,17 +266,11 @@ public class StringMatching {
                 final long endTimeInternal = System.nanoTime();
                 long timeInternal = endTimeInternal - startTimeInternal;
                 timeRecord[4] += timeInternal;
-//                System.out.println("Internal Java method time consumption is " + timeInternal
-//                        + " and result is " + resInternal);
+                System.out.println("Internal Java method time consumption is " + timeInternal
+                        + " and result is " + resInternal);
 
 //                System.out.println("---------------------");
             }
-//            System.out.println("naive: " + timeRecord[0]);
-//            System.out.println("randomized: " + timeRecord[1]);
-//            System.out.println("kmp: " + timeRecord[2]);
-//            System.out.println("Boyer-Mooer: " + timeRecord[3]);
-//            System.out.println("Internal: " + timeRecord[4]);
-//            System.out.println("__________________");
             record[j] = timeRecord;
         }
 
@@ -357,7 +357,7 @@ public class StringMatching {
     private static void writeCsv(String fileName, long[][] record)
             throws IOException {
         PrintWriter writer = new PrintWriter(fileName, "UTF-8");
-        writer.println("Naive, Randomized, KMP, Boyer-Mooer, String.indexOf");
+        writer.println("Naive,Randomized,KMP,Boyer-Mooer,String.indexOf");
         for (long[] r: record) {
             String line = Arrays.stream(r)
                     .mapToObj(String::valueOf)
