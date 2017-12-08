@@ -4,9 +4,11 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import static java.lang.Double.NaN;
+
 public class StringMatching {
 
-    private final static int ALGO_NUMS = 5;
+    private final static int ALGO_NUMS = 6;
 
     public static boolean naive(String str, String pattern) {
 
@@ -26,9 +28,40 @@ public class StringMatching {
 
     //-----------------------------------------------
     public static boolean randomize(String str, String pattern) {
+
+        if (pattern.equals("")) return true;
+
         int n = str.length(), m = pattern.length();
 
-        final double limit =  n * n * m * Math.log(n * n * m);
+        double limit = n * n * m * (long)Math.log(n * n * m);
+        if (limit == NaN) {
+            limit = Double.MAX_VALUE;
+        }
+        int randomPrime = getRandomPrime(limit);
+
+        int subStrFp = createFp(str, 0, m), ptFp = createFp(pattern, 0, m);
+        if ((subStrFp % randomPrime) == (ptFp % randomPrime)) {
+            return true;
+        }
+
+        for (int nextIndex = m; nextIndex < n; nextIndex++) {
+            subStrFp = createFp(pattern, nextIndex - m, nextIndex);
+            if ((subStrFp % randomPrime) == (ptFp % randomPrime)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean randomizeUpdate(String str, String pattern) {
+        if (pattern.equals("")) return true;
+
+        int n = str.length(), m = pattern.length();
+
+        double limit = n * n * m * (long)Math.log(n * n * m);
+        if (limit == NaN) {
+            limit = Double.MAX_VALUE;
+        }
         int randomPrime = getRandomPrime(limit);
 
         int subStrFp = createFp(str, 0, m), ptFp = createFp(pattern, 0, m);
@@ -60,6 +93,7 @@ public class StringMatching {
     }
 
     private static int getRandomPrime(double limit) {
+        if (limit < 2) return 2;
         int i = (int) (Math.random() * limit) - 1;
         while (!isPrime(i)) {
             i = (int) (Math.random() * limit) - 1;
@@ -130,20 +164,16 @@ public class StringMatching {
 
         if (pattern.equals("")) return true;
 
-        // build last occurrence index
         int[] occerrence = createOccurrenceTable(pattern);
 
-        // searching
         int start = pattern.length() - 1;
         int end = str.length();
         int i, j;
 
-        // search from left to right
         while (start < end) {
             i = start;
             for (j = pattern.length() - 1; j >= 0; j--) {
                 if (str.charAt(i) != pattern.charAt(j)) {
-                    // check the last occurrence index
                     if (occerrence[str.charAt(i)] != -1) {
                         if (j - occerrence[str.charAt(i)] > 0) start += j - occerrence[str.charAt(i)];
                         else start += 1;
@@ -187,7 +217,7 @@ public class StringMatching {
     public static void main(String[] args) throws IOException {
 
 //        experiment2();
-        experiment1(1000, 1000, "experiment1.csv");
+        experiment1(5000, 100, "experiment1.csv");
 
     }
 
@@ -227,7 +257,7 @@ public class StringMatching {
                     str = str2;
                     pattern = str1;
                 }
-//                System.out.println(ctr++ + ": String is '" + str + "' and pattern is '" + pattern + "'");
+                System.out.println(ctr++ + ": String is '" + str + "' and pattern is '" + pattern + "'");
 
                 final long startTimeNaive = System.nanoTime();
                 boolean resNaive = naive(str, pattern);
@@ -237,19 +267,27 @@ public class StringMatching {
 //                System.out.println("Naive method time consumption is " + timeNaive
 //                        + " and result is " + resNaive);
 
+                final long startTimeRandUp = System.nanoTime();
+                boolean resRandUp = randomizeUpdate(str, pattern);
+                final long endTimeRandUp = System.nanoTime();
+                long timeRandUp = endTimeRandUp - startTimeRandUp;
+                timeRecord[1] += timeRandUp;
+//                System.out.println("Randomize method time consumption is " + timeRand
+//                        + " and result is " + resRand);
+
                 final long startTimeRand = System.nanoTime();
-                boolean resRand = naive(str, pattern);
+                boolean resRand = randomize(str, pattern);
                 final long endTimeRand = System.nanoTime();
                 long timeRand = endTimeRand - startTimeRand;
-                timeRecord[1] += timeRand;
-                System.out.println("Randomize method time consumption is " + timeRand
-                        + " and result is " + resRand);
+                timeRecord[2] += timeRand;
+//                System.out.println("Randomize method time consumption is " + timeRand
+//                        + " and result is " + resRand);
 
                 final long startTimeKmp = System.nanoTime();
                 boolean resKmp = kmp(str, pattern);
                 final long endTimeKmp = System.nanoTime();
                 long timeKmp = endTimeKmp - startTimeKmp;
-                timeRecord[2] += timeKmp;
+                timeRecord[3] += timeKmp;
 //                System.out.println("KMP method time consumption is " + timeKmp
 //                        + " and result is " + resKmp);
 
@@ -257,7 +295,7 @@ public class StringMatching {
                 boolean resBm = boyerMoore(str, pattern);
                 final long endTimeBm = System.nanoTime();
                 long timeBm = endTimeBm - startTimeBm;
-                timeRecord[3] += timeBm;
+                timeRecord[4] += timeBm;
 //                System.out.println("BoyerMoore method time consumption is " + timeBm
 //                        + " and result is " + resBm);
 
@@ -265,9 +303,9 @@ public class StringMatching {
                 boolean resInternal = internal(str, pattern);
                 final long endTimeInternal = System.nanoTime();
                 long timeInternal = endTimeInternal - startTimeInternal;
-                timeRecord[4] += timeInternal;
-                System.out.println("Internal Java method time consumption is " + timeInternal
-                        + " and result is " + resInternal);
+                timeRecord[5] += timeInternal;
+//                System.out.println("Internal Java method time consumption is " + timeInternal
+//                        + " and result is " + resInternal);
 
 //                System.out.println("---------------------");
             }
@@ -357,7 +395,7 @@ public class StringMatching {
     private static void writeCsv(String fileName, long[][] record)
             throws IOException {
         PrintWriter writer = new PrintWriter(fileName, "UTF-8");
-        writer.println("Naive,Randomized,KMP,Boyer-Mooer,String.indexOf");
+        writer.println("Naive,RandomizeUpdate,Randomize,KMP,Boyer-Mooer,String.indexOf");
         for (long[] r: record) {
             String line = Arrays.stream(r)
                     .mapToObj(String::valueOf)
